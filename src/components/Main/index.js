@@ -10,4 +10,4 @@ export const Main = () => {
       <Weather />
     </S.Main>
   );
-}
+};

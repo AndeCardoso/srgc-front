@@ -10,6 +10,7 @@ import * as S from './styled';
 export const Footer = () => {
   const [icon, setIcon] = useState('');
   const [link, setLink] = useState('');
+  const [enterpriseName, setEnterpriseName] = useState('');
 
   const socialMedias = {
     Facebook: <FaFacebookF size={25} />,
@@ -20,6 +21,7 @@ export const Footer = () => {
 
   useEffect(() => {
     setIcon(socialMedias.Facebook);
+    setEnterpriseName('Nome da Empresa');
   }, [])
   return (
     <S.Footer>
@@ -38,7 +40,7 @@ export const Footer = () => {
         </S.Icon>
       </S.SocialMedias>
       <S.CopyRight>
-        <p>Copyright &copy; 2021 Hotel Kolman | Made by <a href="http://andersoncardoso.dev.br" target="_blank" rel="noreferrer">Anderson Cardoso</a></p>
+        <p>Copyright &copy; 2021 {enterpriseName} | Made by <a href="http://andersoncardoso.dev.br" target="_blank" rel="noreferrer">Anderson Cardoso</a></p>
       </S.CopyRight>
     </S.Footer>
   );
