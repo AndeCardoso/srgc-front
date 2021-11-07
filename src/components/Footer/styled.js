@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Footer = styled.footer`
   width: 100%;
   text-align: center;
-  background-color: #1f3646;
+  background-color: ${props => props.theme.primary};
   padding: 60px 0px;
 `;
 
@@ -14,7 +14,7 @@ export const Top = styled.div`
   width: auto;
   padding: 0 18px;
   height: 36px;
-  background-color: #ffe165;
+  background-color: ${props => props.theme.secondary};
   font-size: 13px;
   color: #121212;
   font-weight: 600;
@@ -43,17 +43,22 @@ export const Icon = styled.li`
   text-align: center;
   color: #fff;
   font-size: 24px;
-  background-color: #364a59;
+  background-color: rgba(250,250,250,0.1);
   transition: all 0.5s;
+  }
+
+  a:hover {
+    background-color: ${props => props.theme.secondary};
+    color: #000;
   }
 `;
 
 export const CopyRight = styled.div`
   width: 100%;
-
+  margin-top: 40px;
   p {
     color: #fff;
     font-size: 12px;
-    margin-top: 40px;
+    margin-bottom: 5px;
   }
 `;

@@ -4,10 +4,12 @@ export const Container = styled.li`
   display: flex;
   text-align: center;
   margin: 10px 0;
-  transition: all 0.5s;
+  transition: all 0.3s;
+  color: #fff;
 
   :hover {
-    background-color: rgba(250,250,250,0.5);
+    background-color: ${props => props.theme.secondary};
+    color: #000;
   }
 `;
 
@@ -18,7 +20,7 @@ export const Link = styled.a`
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #fff;
+  color: inherit;
   font-size: 17px;
   font-weight: 400;
   width: 100%;

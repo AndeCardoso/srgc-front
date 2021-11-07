@@ -5,7 +5,7 @@ export const Container = styled.div`
     margin-top: 15px;
     width: 100%;
     height: 36px;
-    background-color: #ffe165;
+    background-color: ${props => props.theme.secondary};
     font-size: 13px;
     color: #121212;
     font-weight: 600;

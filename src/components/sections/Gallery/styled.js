@@ -58,7 +58,7 @@ export const Item = styled.li`
     height: 60px;
     line-height: 60px;
     padding-left: 20px;
-    background-color: #1f3646;
+    background-color: ${props => props.theme.primary};
   }
 
   i {

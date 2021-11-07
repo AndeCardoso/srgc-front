@@ -1,46 +1,79 @@
 import { useEffect, useState } from 'react';
 
-import { AiOutlineTwitter } from 'react-icons/ai'
-import { FaFacebookF } from 'react-icons/fa'
-import { ImYoutube2 } from 'react-icons/im'
-import { BsInstagram } from 'react-icons/bs'
+import { AiOutlineTwitter } from 'react-icons/ai';
+import { FaFacebookF } from 'react-icons/fa';
+import { BsInstagram } from 'react-icons/bs';
+
+import api from '../../services/api';
 
 import * as S from './styled';
 
 export const Footer = () => {
-  const [icon, setIcon] = useState('');
-  const [link, setLink] = useState('');
   const [enterpriseName, setEnterpriseName] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
 
-  const socialMedias = {
-    Facebook: <FaFacebookF size={25} />,
-    Twitter: <AiOutlineTwitter size={25} />,
-    Instagram: <BsInstagram size={25} />,
-    Youtube: <ImYoutube2 size={25} />,
-  }
+  const [ facebook, setFacebook ] = useState('');
+  const [ instagram, setInstagram ] = useState('');
+  const [ twitter, setTwitter ] = useState('');
 
-  useEffect(() => {
-    setIcon(socialMedias.Facebook);
-    setEnterpriseName('Nome da Empresa');
+  const token = '$2b$10$imE3ylmcaAHEfmX/VjTHiuCZ1V1WIH227Utj.eSwjWDinntWEfMeq';
+
+  useEffect( async () => {
+    api.defaults.headers.token =  token;
+    const response = await api.get('/settings');
+    setEnterpriseName(response.data.settings.enterpriseName);
+    setAddress(response.data.settings.address);
+    setPhone(response.data.settings.phone);
+  }, []);
+
+  useEffect( async () => {
+    if (token) {
+      api.defaults.headers.token =  token;
+      const response = await api.get('/social-medias');
+      setFacebook(response.data.socialMedias.facebook);
+      setInstagram(response.data.socialMedias.instagram);
+      setTwitter(response.data.socialMedias.twitter);
+    }
   }, [])
+
   return (
     <S.Footer>
       <S.Top>
-          <a href="#home" class="scroll-top">Back To Top</a>
+          <a href="#home">Back To Top</a>
       </S.Top>
       <S.SocialMedias>
-        <S.Icon>
-          <a href={link}>{icon}</a>
-        </S.Icon>
-        <S.Icon>
-          <a href={link}>{icon}</a>
-        </S.Icon>
-        <S.Icon>
-          <a href={link}>{icon}</a>
-        </S.Icon>
+        {
+          facebook 
+          ?
+          <S.Icon>
+            <a href={facebook} target="_blank" ><FaFacebookF size={25} /></a>
+          </S.Icon> 
+          :
+          <></>
+        }
+        {
+          twitter 
+          ?
+          <S.Icon>
+            <a href={twitter} target="_blank"><AiOutlineTwitter size={25} /></a>
+          </S.Icon> 
+          :
+          <></>
+        }
+        {
+          instagram 
+          ?
+          <S.Icon>
+            <a href={instagram} target="_blank"><BsInstagram size={25} /></a>
+          </S.Icon> 
+          :
+          <></>
+        }
       </S.SocialMedias>
       <S.CopyRight>
-        <p>Copyright &copy; 2021 {enterpriseName} | Made by <a href="http://andersoncardoso.dev.br" target="_blank" rel="noreferrer">Anderson Cardoso</a></p>
+        <p>Copyright &copy; 2021 {enterpriseName} | {address} | Telefone: {phone}</p>
+        <p>Made by <a href="http://andersoncardoso.dev.br" target="_blank" rel="noreferrer">Anderson Cardoso</a></p>
       </S.CopyRight>
     </S.Footer>
   );

@@ -11,6 +11,6 @@ export const Container = styled.div`
   iframe {
     width: 80%;
     height: 430px;
-    background-color: #1F3647;
+    background-color: ${props => props.theme.primary};
   }
 `;

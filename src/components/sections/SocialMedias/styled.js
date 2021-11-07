@@ -44,19 +44,19 @@ export const Contact = styled.div`
     align-self: center;
   }
 
- a{
-  display: inline-block;
-  line-height: 60px;
-  width: 270px;
-  height: 60px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  background-color: #ffe165;
-  font-size: 18px;
-  font-weight: 700;
-  color: #121212;
-  text-align: center;
-  text-decoration: none;
-  letter-spacing: 0px;
- }
+  a {
+    display: inline-block;
+    line-height: 60px;
+    width: 270px;
+    height: 60px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: ${props => props.theme.secondary};
+    font-size: 18px;
+    font-weight: 700;
+    color: #121212;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0px;
+  }
 `;
