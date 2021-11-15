@@ -13,19 +13,20 @@ export const Slide = () => {
   }));
   const [ images, setImages] = useState('');
 
-  useEffect(() => {
-    const chargeSlide = async () => {
-      await api.get('/slide')
-      .then( response => {
-        console.log(response)
-        }
-      )
-      .catch(err =>
-        console.log(err)
-        )
-    }
-    chargeSlide();
-  }, [])
+  // useEffect(() => {
+  //   const chargeSlide = async () => {
+  //     await api.get('/slide')
+  //     .then( response => {
+  //       console.log(response)
+  //       }
+  //     )
+  //     .catch(err =>
+  //       console.log(err)
+  //       )
+  //   }
+  //   chargeSlide();
+  // }, [])
+
   return (
     <S.Container>
       <Carousel

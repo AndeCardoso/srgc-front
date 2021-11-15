@@ -1,12 +1,12 @@
 import * as S from './styled';
 
-import { Gallery } from "../sections/Gallery";
+import { Galleries } from "../sections/Galleries";
 import { Weather } from '../sections/Weather';
 
 export const Main = () => {
   return (
     <S.Main>
-      <Gallery />
+      <Galleries />
       <Weather />
     </S.Main>
   );
