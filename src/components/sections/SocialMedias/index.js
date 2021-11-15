@@ -15,23 +15,18 @@ export const SocialMedias = () => {
   const [ instagram, setInstagram ] = useState('');
   const [ twitter, setTwitter ] = useState('');
 
-  const token = '$2b$10$imE3ylmcaAHEfmX/VjTHiuCZ1V1WIH227Utj.eSwjWDinntWEfMeq';
   const phoneLink = `tel:+550${phone}`;
 
   useEffect( async () => {
-    api.defaults.headers.token =  token;
     const response = await api.get('/settings');
     setPhone(response.data.settings.phone);
   }, []);
 
   useEffect( async () => {
-    if (token) {
-      api.defaults.headers.token =  token;
-      const response = await api.get('/social-medias');
-      setFacebook(response.data.socialMedias.facebook);
-      setInstagram(response.data.socialMedias.instagram);
-      setTwitter(response.data.socialMedias.twitter);
-    }
+    const response = await api.get('/social-medias');
+    setFacebook(response.data.socialMedias.facebook);
+    setInstagram(response.data.socialMedias.instagram);
+    setTwitter(response.data.socialMedias.twitter);
   }, [])
 
   return (

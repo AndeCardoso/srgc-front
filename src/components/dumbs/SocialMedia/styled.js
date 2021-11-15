@@ -4,18 +4,12 @@ export const Container = styled.li`
   display: flex;
   text-align: center;
   margin: 10px 0;
-  transition: all 0.3s;
-  color: #fff;
-
-  :hover {
-    background-color: ${props => props.theme.secondary};
-    color: #000;
+  color: #fff;  
   }
 `;
 
 export const Link = styled.a`
   display: inline-block;
-  transition: all 0.5s;
   text-align: left;
   text-decoration: none;
   text-transform: uppercase;
@@ -28,6 +22,11 @@ export const Link = styled.a`
   line-height: 60px;
   padding-left: 20px;
   background-color: rgba(250,250,250,0.1);
+  transition: all 0.6s;
+
+  :hover {
+    background-color: ${props => props.theme.secondary};
+    color: #000;
 `;
 
 export const Icon = styled.i`

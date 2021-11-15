@@ -16,16 +16,12 @@ export const Layout = () => {
     secondary: ''
   });
 
-  const token = '$2b$10$imE3ylmcaAHEfmX/VjTHiuCZ1V1WIH227Utj.eSwjWDinntWEfMeq';
-
   useEffect( async () => {
-    api.defaults.headers.token =  token;
     const response = await api.get('/settings');
     setEnterpriseName(response.data.settings.enterpriseName);
   }, []);
   
   useEffect( async () => {
-    api.defaults.headers.token =  token;
     const response = await api.get('/theme');
     setTheme({
       primary: response.data.theme.primary,

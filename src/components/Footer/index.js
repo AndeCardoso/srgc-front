@@ -40,7 +40,7 @@ export const Footer = () => {
   return (
     <S.Footer>
       <S.Top>
-          <a href="#home">Back To Top</a>
+          <a href="#home">Voltar ao topo</a>
       </S.Top>
       <S.SocialMedias>
         {
@@ -73,7 +73,7 @@ export const Footer = () => {
       </S.SocialMedias>
       <S.CopyRight>
         <p>Copyright &copy; 2021 {enterpriseName} | {address} | Telefone: {phone}</p>
-        <p>Made by <a href="http://andersoncardoso.dev.br" target="_blank" rel="noreferrer">Anderson Cardoso</a></p>
+        <p>Desenvolvido por <a href="http://andersoncardoso.dev.br" target="_blank" rel="noreferrer">Anderson Cardoso</a></p>
       </S.CopyRight>
     </S.Footer>
   );
