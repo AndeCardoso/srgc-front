@@ -10,6 +10,9 @@ import * as S from './styled';
 
 export const SocialMedias = () => {
   const [ phone, setPhone ] = useState('');
+  const [ enterpriseName, setEnterpriseName ] = useState('');
+
+  const [ sectionTitle, setSectionTitle ] = useState('');
 
   const [ facebook, setFacebook ] = useState('');
   const [ instagram, setInstagram ] = useState('');
@@ -18,24 +21,31 @@ export const SocialMedias = () => {
   const phoneLink = `tel:+550${phone}`;
 
   useEffect( async () => {
-    const response = await api.get('/settings');
-    setPhone(response.data.settings.phone);
+    await api.get('/settings')
+    .then(response => {
+      setPhone(response.data.settings.phone);
+      setEnterpriseName(response.data.settings.enterpriseName);
+    })
   }, []);
 
   useEffect( async () => {
-    const response = await api.get('/social-medias');
-    setFacebook(response.data.socialMedias.facebook);
-    setInstagram(response.data.socialMedias.instagram);
-    setTwitter(response.data.socialMedias.twitter);
+    await api.get('/social-medias')
+    .then(response => {
+      setSectionTitle(response.data.socialMedias.sectionTitle);
+      setFacebook(response.data.socialMedias.facebook);
+      setInstagram(response.data.socialMedias.instagram);
+      setTwitter(response.data.socialMedias.twitter);
+    })
   }, [])
 
   return (
     <S.Container>
       <S.Logo>
-        <img src="https://logodownload.org/wp-content/uploads/2020/02/hoteis.com-logo.png" alt="Logo do Site" />
+        <h1>{enterpriseName}</h1>
+        {/* <img src="https://logodownload.org/wp-content/uploads/2020/02/hoteis.com-logo.png" alt="Logo do Site" /> */}
       </S.Logo>
       <S.Social>
-        <S.Title>Acesse nossas redes sociais:</S.Title>
+        <S.Title>{sectionTitle}</S.Title>
         <S.List>
           {
             facebook ? <SocialMedia href={facebook} media="Facebook">Curta nossa pagina</SocialMedia> : <></>

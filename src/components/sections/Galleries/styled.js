@@ -7,7 +7,7 @@ export const Section = styled.section`
   
 `;
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   width: 1200px;
   padding-right: 15px;
   padding-left: 15px;
@@ -22,18 +22,20 @@ export const Title = styled.h3`
   font-size: 24px;
   text-transform: uppercase;
   font-weight: 900;
-  color: #121212;
+  color: ${props => props.theme.primary};
 `;
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
+  
 `;
 
 export const SideList = styled.ul`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   list-style: none;
   width: 360px;
 `;
@@ -79,4 +81,5 @@ export const CarouselContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-top: 8px;
 `;

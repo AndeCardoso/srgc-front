@@ -8,30 +8,31 @@ import api from '../../../services/api';
 import * as S from './styled';
 
 export const Slide = () => {
-  const imagesDog = [910, 900, 700, 600, 500].map((size) => ({
-    src: `https://placedog.net/${size}/${size}`
-  }));
-  const [ images, setImages] = useState('');
+  const [ paths, setPaths] = useState([]);
 
-  // useEffect(() => {
-  //   const chargeSlide = async () => {
-  //     await api.get('/slide')
-  //     .then( response => {
-  //       console.log(response)
-  //       }
-  //     )
-  //     .catch(err =>
-  //       console.log(err)
-  //       )
-  //   }
-  //   chargeSlide();
-  // }, [])
+  const images = paths.map((path) => ({
+    src: `http://localhost:5000/public/${path}`
+  }));
+
+  const getPaths = async () => {
+    await api.get('/slide')
+    .then(response => {
+      response.data.data.map((path) => {return setPaths(events => [...events, path])});
+    })
+    .catch(err =>
+      console.log(err)
+    )
+  }
+
+  useEffect(() => {
+    getPaths();
+  }, [])
 
   return (
     <S.Container>
       <Carousel
-        images={imagesDog}
-        autoPlayInterval={3000}
+        images={images}
+        autoPlayInterval={4000}
         canAutoPlay={true}
         isAutoPlaying={true}
         hasDotButtons={'bottom'}

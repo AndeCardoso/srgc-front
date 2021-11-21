@@ -6,11 +6,13 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 50px 100px 0;
+  padding: 0 0 100px 0;
+  
 
   iframe {
-    width: 80%;
-    height: 430px;
+    width: 75%;
+    height: 440px;
     background-color: ${props => props.theme.primary};
+    border: none;
   }
 `;

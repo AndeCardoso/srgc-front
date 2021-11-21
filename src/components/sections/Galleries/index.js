@@ -3,96 +3,102 @@ import Carousel from 'react-gallery-carousel';
 
 import { GalleryButton } from '../../dumbs/Button';
 
+import api from '../../../services/api';
+
 import * as S from './styled';
 
 export const Galleries = () => {
     const [sectionTitle, setSectionTitle] = useState('');
+    const [galleryTitles, setGalleryTitles] = useState([]);
+    const [gallery, setGallery] = useState([]);
 
-    const [gallery1, setGallery1] = useState('');
-    const [gallery2, setGallery2] = useState('');
-    const [gallery3, setGallery3] = useState('');
-    const [gallery4, setGallery4] = useState('');
-    const [gallery5, setGallery5] = useState('');
 
-    const [images, setImages] = useState([]);
+    const renderSwitch = async (value) => {
+        setGallery([]);
+        await api.get(`/gallery/gallery${value}`)
+        .then(response => response.data.images.map((path) => {
+            return setGallery(events => [...events, {
+                src: `http://localhost:5000/public/${path}`
+            }])
+        }))
+        
+    }
+    
+    const getSectionTitle = async () => {
+      await api.get('/section')
+      .then(response => {
+        return setSectionTitle(response.data.section.title);
+      })
+      .catch((error) => {
+        console.log(error)
+        return alert.show('Erro inesperado aconteceu!', {type: 'error'});
+      })
+    }
 
-    const renderSwitch = (value) => {
-        console.log(value)
-        setImages([]);
-        switch (value) {
-            case '1': return setImages([910, 900, 701, 601, 501].map((size) => ({
-                src: `https://placedog.net/${size}/${size}`
-                })));
-            case '2': return setImages([912, 902, 702, 602, 502].map((size) => ({
-                src: `https://placedog.net/${size}/${size}`
-                })));
-            case '3': return setImages([913, 903, 703, 603, 503].map((size) => ({
-                src: `https://placedog.net/${size}/${size}`
-                })));
-            case '4': return setImages([914, 904, 704, 604, 504].map((size) => ({
-                src: `https://placedog.net/${size}/${size}`
-                })));
-            case '5': return setImages([915, 905, 705, 605, 505].map((size) => ({
-                src: `https://placedog.net/${size}/${size}`
-                })));
-        }
+    const getGalleriesTitle = async () => {
+        await api.get(`/galleries-titles`)
+        .then(response => {
+            console.log(response.data)
+            response.data.data.map((title) => {
+                return setGalleryTitles(events => [...events, title])
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+            //return alert.show('Erro inesperado aconteceu!', {type: 'error'});
+        })
     }
 
     useEffect(() => {
+        getSectionTitle();
+        getGalleriesTitle();
         renderSwitch('1');
-        setGallery1('1');
-        setGallery2('2');
-        setGallery3('3');
-        setGallery4('4');
-        setGallery5('5');
     }, [])
 
     return (
-        <S.Section id='gallery'>
-            <S.Container>
+        <S.Section>
+            <S.Wrapper>
                 <S.Title>{sectionTitle}</S.Title>
-                <S.Wrapper>
+                <S.Container>
                     <S.SideList>
-                        { gallery1 !== '' ?
-                            <GalleryButton onClick={() => renderSwitch('1')}>Galeria 1</GalleryButton>
+                        { galleryTitles[0] !== '' ?
+                            <GalleryButton onClick={() => renderSwitch('1')} className='first'>{galleryTitles[0]}</GalleryButton>
                             :<></>
                         }
-                        { gallery2 !== '' ?
-                            <GalleryButton onClick={() => renderSwitch('2')}>Galeria 2</GalleryButton>
+                        { galleryTitles[1] !== '' ?
+                            <GalleryButton onClick={() => renderSwitch('2')}>{galleryTitles[1]}</GalleryButton>
                             :<></>
                         }
-                        { gallery3 !== '' ?
-                            <GalleryButton onClick={() => renderSwitch('3')}>Galeria 3</GalleryButton>
+                        { galleryTitles[2] !== '' ?
+                            <GalleryButton onClick={() => renderSwitch('3')}>{galleryTitles[2]}</GalleryButton>
                             :<></>
                         }
-                        { gallery4 !== '' ?
-                            <GalleryButton onClick={() => renderSwitch('4')}>Galeria 4</GalleryButton>
+                        { galleryTitles[3] !== '' ?
+                            <GalleryButton onClick={() => renderSwitch('4')}>{galleryTitles[3]}</GalleryButton>
                             :<></>
                         }
-                        { gallery5 !== '' ?
-                            <GalleryButton onClick={() => renderSwitch('5')}>Galeria 5</GalleryButton>
+                        { galleryTitles[4] !== '' ?
+                            <GalleryButton onClick={() => renderSwitch('5')}>{galleryTitles[4]}</GalleryButton>
                             :<></>
                         }
                     </S.SideList>
                     <S.CarouselContainer>
                         <Carousel
-                            images={images}
+                            images={gallery}
                             autoPlayInterval={3000}
                             isAutoPlaying={true}
                             hasDotButtons={'bottom'}
-                            hasLeftButtonAtMax={false}
                             isLoop={true}
                             hasTransition={true}
                             transitionSpeed={2}
                             hasThumbnails={true}
                             hasIndexBoard={false}
-                            hasSizeButton={false}
                             hasRightButton={false}
                             hasLeftButton={false}
                         />
                     </S.CarouselContainer>
-                </S.Wrapper>
-            </S.Container>
+                </S.Container>
+            </S.Wrapper>
         </S.Section>
     );
 }

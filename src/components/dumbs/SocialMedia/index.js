@@ -24,7 +24,7 @@ export const SocialMedia = ({ href, children, media }) => {
 
   return (
     <S.Container>
-      <S.Link href={href}>
+      <S.Link href={href} target="_blank">
         {children}
         <S.Icon>
           {icon}

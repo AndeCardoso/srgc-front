@@ -29,6 +29,14 @@ export const List = styled.ul`
 `;
 
 export const Logo = styled.div`
+  margin-top: 70px;
+  
+  h1 {
+    text-transform: uppercase;
+    font-size: 40px;
+    color: ${props => props.theme.secondary};
+  }
+
   img {
     padding-top: 60px;
     max-width: 250px;

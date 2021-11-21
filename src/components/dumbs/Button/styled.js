@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   .standart {
+    align-self: center;
     margin-top: 15px;
-    width: 100%;
+    width: 100px;
     height: 36px;
     background-color: ${props => props.theme.secondary};
-    font-size: 13px;
+    font-size: 18px;
     color: #121212;
     font-weight: 600;
     border: none;
@@ -19,9 +20,7 @@ export const Item = styled.li`
   display: block;
   text-align: center;
   margin: 8px 0px;
-
   
-
   button {
     display: block;
     transition: all 0.5s;
@@ -40,6 +39,8 @@ export const Item = styled.li`
     cursor: pointer;
     border: none;
     background-color: ${props => props.theme.primary};
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   button:hover {
