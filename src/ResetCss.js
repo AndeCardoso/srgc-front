@@ -13,6 +13,7 @@ export const ResetCss = createGlobalStyle`
 
     body {
         font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        background-color: #fff;
     }
 
     a {

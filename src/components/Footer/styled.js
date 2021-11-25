@@ -8,19 +8,23 @@ export const Footer = styled.footer`
 `;
 
 export const Top = styled.div`
-  text-decoration: none;
-  margin-top: 15px;
-  margin-bottom: 40px;
-  width: auto;
-  padding: 0 18px;
-  height: 36px;
-  background-color: ${props => props.theme.secondary};
-  font-size: 13px;
-  color: #121212;
-  font-weight: 600;
-  display: inline-block;
-  text-align: center;
-  line-height: 36px;
+  a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    width: auto;
+    padding: 0 18px;
+    height: 36px;
+    background-color: ${props => props.theme.secondary};
+    font-size: 13px;
+    color: #121212;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    line-height: 36px;
+  }
 `;
 
 export const SocialMedias = styled.ul`
@@ -31,7 +35,7 @@ export const SocialMedias = styled.ul`
 `;
 
 export const Icon = styled.li`
-  margin: 0px 3px;
+  margin: 3px;
 
   a{
   width: 80px;
@@ -56,6 +60,40 @@ export const Icon = styled.li`
 export const CopyRight = styled.div`
   width: 100%;
   margin-top: 40px;
+
+  p {
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+`;
+
+export const Infos = styled.div`
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  @media screen and (max-width: 680px) {
+    flex-direction: column;
+    
+    p {
+      font-size: 11px;
+    }
+  }
+`;
+
+export const Developer = styled.div`
+  width: 100%;
+  margin-top: 40px;
+
   p {
     color: #fff;
     font-size: 12px;

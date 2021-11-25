@@ -1,21 +1,61 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  margin-left: auto;
+  padding-left: auto;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+`;
+
+export const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content:space-between;
-  text-align: left;
+  align-items:center;
   background-color: rgba(0,0,0,0.5);
-  height: 100%;
+  padding-right: 100px;
   margin-left: -100vh;
   padding-left: 100vh;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    height: 550px;
+    margin: 0;
+    padding: 0;
+  }
+`;
+
+export const Logo = styled.div`
+  margin-top: 70px;
+  
+  h1 {
+    text-transform: uppercase;
+    font-size: 40px;
+    color: ${props => props.theme.secondary};
+  }
+
+  @media screen and (max-width: 368px) {
+    width: 90%;
+    margin-top: 50px;
+  }
 `;
 
 export const Social = styled.div`
-  padding-right: 100px;
+  align-items: center;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
 `;
 
-export const Title = styled.h3`
+export const SectionTitle = styled.div`
   margin-top: 0;
   margin-bottom: 40px;
   font-size: 24px;
@@ -28,20 +68,6 @@ export const List = styled.ul`
   margin-top: 0;
 `;
 
-export const Logo = styled.div`
-  margin-top: 70px;
-  
-  h1 {
-    text-transform: uppercase;
-    font-size: 40px;
-    color: ${props => props.theme.secondary};
-  }
-
-  img {
-    padding-top: 60px;
-    max-width: 250px;
-  }
-`;
 
 export const Contact = styled.div`
   display: flex;

@@ -37,13 +37,12 @@ export const Contact = () => {
       email
     }
     await api.post('/public/contact', data)
-    .then(response => {
+    .then(() => {
       return alert.show(`Seu contato foi enviado!`, {type: 'success'})
     })
-    .catch(error => {
+    .catch(() => {
       return alert.show('Um erro inesperado aconteceu.', {type: 'error'});
     })
-    
   }
 
   return (

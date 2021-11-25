@@ -11,4 +11,16 @@ export const Container = styled.section`
   ul{
     cursor: inherit;
   }
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    justify-content: center;
+    height: 130vh;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    height: 130vh;
+  }
 `

@@ -8,7 +8,7 @@ export const Section = styled.section`
 `;
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  max-width: 1200px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -29,7 +29,11 @@ export const Container = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
-  
+
+  @media screen and (max-width: 1025px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const SideList = styled.ul`
@@ -38,6 +42,10 @@ export const SideList = styled.ul`
   justify-content: flex-start;
   list-style: none;
   width: 360px;
+  
+  @media screen and (max-width: 1025px) {
+    width: 100%;
+  }
 `;
 
 export const Item = styled.li`
@@ -82,4 +90,8 @@ export const CarouselContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 8px;
+  
+  @media screen and (max-width: 1025px) {
+    width: 100%;
+  }
 `;

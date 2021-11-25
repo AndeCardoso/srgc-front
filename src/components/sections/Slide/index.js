@@ -35,7 +35,6 @@ export const Slide = () => {
         autoPlayInterval={4000}
         canAutoPlay={true}
         isAutoPlaying={true}
-        hasDotButtons={'bottom'}
         hasLeftButtonAtMax={false}
         isLoop={true}
         hasTransition={true}

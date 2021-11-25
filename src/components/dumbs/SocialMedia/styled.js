@@ -4,8 +4,7 @@ export const Container = styled.li`
   display: flex;
   text-align: center;
   margin: 10px 0;
-  color: #fff;  
-  }
+  color: #fff;
 `;
 
 export const Link = styled.a`
@@ -27,6 +26,7 @@ export const Link = styled.a`
   :hover {
     background-color: ${props => props.theme.secondary};
     color: #000;
+  }
 `;
 
 export const Icon = styled.i`

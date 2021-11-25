@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Carousel from 'react-gallery-carousel';
+import { useAlert } from 'react-alert';
 
 import { GalleryButton } from '../../dumbs/Button';
 
@@ -12,6 +13,7 @@ export const Galleries = () => {
     const [galleryTitles, setGalleryTitles] = useState([]);
     const [gallery, setGallery] = useState([]);
 
+    const alert = useAlert();
 
     const renderSwitch = async (value) => {
         setGallery([]);
@@ -43,9 +45,8 @@ export const Galleries = () => {
                 return setGalleryTitles(events => [...events, title])
             })
         })
-        .catch((error) => {
-            console.log(error)
-            //return alert.show('Erro inesperado aconteceu!', {type: 'error'});
+        .catch(() => {
+            return alert.show('Erro inesperado aconteceu!', {type: 'error'});
         })
     }
 

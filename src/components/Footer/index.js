@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { AiOutlineTwitter } from 'react-icons/ai';
-import { FaFacebookF } from 'react-icons/fa';
+import { FaFacebookF, FaReact } from 'react-icons/fa';
 import { BsInstagram } from 'react-icons/bs';
 
 import api from '../../services/api';
@@ -72,8 +72,14 @@ export const Footer = () => {
         }
       </S.SocialMedias>
       <S.CopyRight>
-        <p>Copyright &copy; 2021 {enterpriseName} | {address} | Telefone: {phone}</p>
-        <p>Desenvolvido por <a href="http://andersoncardoso.dev.br" target="_blank" rel="noreferrer">Anderson Cardoso</a></p>
+        <S.Infos>
+          <p>Copyright &copy; 2021 {enterpriseName} </p><p>| {address} |</p><p> Telefone: {phone}</p>
+        </S.Infos>
+        <S.Developer>
+          <p>Desenvolvido por 
+          <strong><a href="http://andersoncardoso.dev.br" target="_blank" rel="noreferrer">Anderson Cardoso</a></strong>
+          em React <FaReact size={12} /></p>
+        </S.Developer>
       </S.CopyRight>
     </S.Footer>
   );

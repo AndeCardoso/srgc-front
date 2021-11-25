@@ -40,31 +40,32 @@ export const SocialMedias = () => {
 
   return (
     <S.Container>
-      <S.Logo>
-        <h1>{enterpriseName}</h1>
-        {/* <img src="https://logodownload.org/wp-content/uploads/2020/02/hoteis.com-logo.png" alt="Logo do Site" /> */}
-      </S.Logo>
-      <S.Social>
-        <S.Title>{sectionTitle}</S.Title>
-        <S.List>
-          {
-            facebook ? <SocialMedia href={facebook} media="Facebook">Curta nossa pagina</SocialMedia> : <></>
-          }
-          {
-            instagram ? <SocialMedia href={instagram} media="Instagram">Siga nosso perfil</SocialMedia> : <></>
-          }
-          {
-            twitter ? <SocialMedia href={twitter} media="Twitter">Siga nosso perfil</SocialMedia> : <></>
-          }
+      <S.Section>
+        <S.Logo>
+          <h1>{enterpriseName}</h1>
+        </S.Logo>
+        <S.Social>
+          <S.SectionTitle>{sectionTitle}</S.SectionTitle>
+          <S.List>
+            {
+              facebook ? <SocialMedia href={facebook} media="Facebook">Curta nossa pagina</SocialMedia> : <></>
+            }
+            {
+              instagram ? <SocialMedia href={instagram} media="Instagram">Siga nosso perfil</SocialMedia> : <></>
+            }
+            {
+              twitter ? <SocialMedia href={twitter} media="Twitter">Siga nosso perfil</SocialMedia> : <></>
+            }
 
-        </S.List>
-      </S.Social>
-      <S.Contact>
-        <a href={phoneLink}>
-          <IoCall />
-          {phone}
-        </a>
-      </S.Contact>
+          </S.List>
+        </S.Social>
+        <S.Contact>
+          <a href={phoneLink}>
+            <IoCall />
+            {phone}
+          </a>
+        </S.Contact>
+      </S.Section>
     </S.Container>
   );
 }
