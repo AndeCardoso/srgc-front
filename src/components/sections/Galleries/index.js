@@ -13,10 +13,57 @@ export const Galleries = () => {
     const [galleryTitles, setGalleryTitles] = useState([]);
     const [gallery, setGallery] = useState([]);
 
+    const [state1, setState1] = useState('');
+    const [state2, setState2] = useState('');
+    const [state3, setState3] = useState('');
+    const [state4, setState4] = useState('');
+    const [state5, setState5] = useState('');
+
     const alert = useAlert();
+
+    const changeActivate = (value) => {
+        switch (value) {
+            case '1': 
+                setState1(true);
+                setState2(false);
+                setState3(false);
+                setState4(false);
+                setState5(false);
+                break;
+            case '2': 
+                setState1(false);
+                setState2(true);
+                setState3(false);
+                setState4(false);
+                setState5(false);
+                break;
+            case '3': 
+                setState1(false);
+                setState2(false);
+                setState3(true);
+                setState4(false);
+                setState5(false);
+                break;
+            case '4': 
+                setState1(false);
+                setState2(false);
+                setState3(false);
+                setState4(true);
+                setState5(false);
+                break;
+            case '5': 
+                setState1(false);
+                setState2(false);
+                setState3(false);
+                setState4(false);
+                setState5(true);
+                break;
+        }
+    }
 
     const renderSwitch = async (value) => {
         setGallery([]);
+        changeActivate(value);
         await api.get(`/gallery/gallery${value}`)
         .then(response => response.data.images.map((path) => {
             return setGallery(events => [...events, {
@@ -25,14 +72,13 @@ export const Galleries = () => {
         }))
         
     }
-    
+
     const getSectionTitle = async () => {
       await api.get('/section')
       .then(response => {
         return setSectionTitle(response.data.section.title);
       })
-      .catch((error) => {
-        console.log(error)
+      .catch(() => {
         return alert.show('Erro inesperado aconteceu!', {type: 'error'});
       })
     }
@@ -40,7 +86,6 @@ export const Galleries = () => {
     const getGalleriesTitle = async () => {
         await api.get(`/galleries-titles`)
         .then(response => {
-            console.log(response.data)
             response.data.data.map((title) => {
                 return setGalleryTitles(events => [...events, title])
             })
@@ -63,23 +108,23 @@ export const Galleries = () => {
                 <S.Container>
                     <S.SideList>
                         { galleryTitles[0] !== '' ?
-                            <GalleryButton onClick={() => renderSwitch('1')} className='first'>{galleryTitles[0]}</GalleryButton>
+                            <GalleryButton state={state1} onClick={() => renderSwitch('1')}>{galleryTitles[0]}</GalleryButton>
                             :<></>
                         }
                         { galleryTitles[1] !== '' ?
-                            <GalleryButton onClick={() => renderSwitch('2')}>{galleryTitles[1]}</GalleryButton>
+                            <GalleryButton state={state2} onClick={() => renderSwitch('2')}>{galleryTitles[1]}</GalleryButton>
                             :<></>
                         }
                         { galleryTitles[2] !== '' ?
-                            <GalleryButton onClick={() => renderSwitch('3')}>{galleryTitles[2]}</GalleryButton>
+                            <GalleryButton activate={state3} onClick={() => renderSwitch('3')}>{galleryTitles[2]}</GalleryButton>
                             :<></>
                         }
                         { galleryTitles[3] !== '' ?
-                            <GalleryButton onClick={() => renderSwitch('4')}>{galleryTitles[3]}</GalleryButton>
+                            <GalleryButton activate={state4} onClick={() => renderSwitch('4')}>{galleryTitles[3]}</GalleryButton>
                             :<></>
                         }
                         { galleryTitles[4] !== '' ?
-                            <GalleryButton onClick={() => renderSwitch('5')}>{galleryTitles[4]}</GalleryButton>
+                            <GalleryButton activate={state5} onClick={() => renderSwitch('5')}>{galleryTitles[4]}</GalleryButton>
                             :<></>
                         }
                     </S.SideList>

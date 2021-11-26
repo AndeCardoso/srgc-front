@@ -76,9 +76,7 @@ export const Footer = () => {
           <p>Copyright &copy; 2021 {enterpriseName} </p><p>| {address} |</p><p> Telefone: {phone}</p>
         </S.Infos>
         <S.Developer>
-          <p>Desenvolvido por 
-          <strong><a href="http://andersoncardoso.dev.br" target="_blank" rel="noreferrer">Anderson Cardoso</a></strong>
-          em React <FaReact size={12} /></p>
+          <p>Desenvolvido por <strong><a href="http://andersoncardoso.dev.br" target="_blank" rel="noreferrer">Anderson Cardoso</a></strong> em React <FaReact size={12} /></p>
         </S.Developer>
       </S.CopyRight>
     </S.Footer>

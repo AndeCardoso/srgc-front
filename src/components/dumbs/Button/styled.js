@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  .standart {
+  .standard {
     align-self: center;
     margin-top: 15px;
     width: 100px;
@@ -48,10 +48,14 @@ export const Item = styled.li`
     color: #000;
   }
   
-  button:focus {
+  .clicked {
     background-color: ${props => props.theme.secondary};
     color: #000;
   }
+  /* button:focus {
+    background-color: ${props => props.theme.secondary};
+    color: #000;
+  } */
 
   i {
     float: right;
