@@ -48,7 +48,7 @@ export const Form = styled.div`
   width: 100%;
   display: block;
 
-  .standart{
+  .standard{
     margin-left: 10px;
   }
 

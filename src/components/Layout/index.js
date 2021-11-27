@@ -8,6 +8,7 @@ import { Footer } from "../Footer";
 import api from '../../services/api';
 
 import * as S from './styled';
+import { ResetCss } from '../../ResetCss';
 
 export const Layout = () => {
   const [ enterpriseName, setEnterpriseName ] = useState('');
@@ -32,6 +33,7 @@ export const Layout = () => {
   document.title = enterpriseName;
   return (
     <ThemeProvider theme={theme}>
+      <ResetCss />
       <S.Layout>
         <Header />
         <Main />

@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  `;
+`;
 
 export const Header = styled.header`
   max-width: 1200px;
@@ -23,7 +23,7 @@ export const Header = styled.header`
     width: 100%;
     height: 130vh;
   }
-`
+`;
 
 export const BelongContainer = styled.div`
   width: 100%;
@@ -40,4 +40,4 @@ export const BelongContainer = styled.div`
     width: 100%;
     height: 130vh;
   }
-`
+`;

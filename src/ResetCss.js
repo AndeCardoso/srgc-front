@@ -16,6 +16,14 @@ export const ResetCss = createGlobalStyle`
         background-color: #fff;
     }
 
+    body::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: ${props => props.theme.primary};
+    }
+
     a {
         text-decoration: none;
         color: inherit;
