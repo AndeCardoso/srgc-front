@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
 
-import api from '../../../services/api';
+import api, {BASE_API} from '../../../services/api';
 
 import * as S from './styled';
 
@@ -11,7 +11,7 @@ export const Slide = () => {
   const [ paths, setPaths] = useState([]);
 
   const images = paths.map((path) => ({
-    src: `http://localhost:5000/public/${path}`
+    src: `${BASE_API}/public/${path}`
   }));
 
   const getPaths = async () => {
