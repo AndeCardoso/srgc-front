@@ -4,7 +4,7 @@ import { useAlert } from 'react-alert';
 
 import { GalleryButton } from '../../dumbs/Button';
 
-import api from '../../../services/api';
+import api, { BASE_API } from '../../../services/api';
 
 import * as S from './styled';
 
@@ -67,7 +67,7 @@ export const Galleries = () => {
         await api.get(`/gallery/gallery${value}`)
         .then(response => response.data.images.map((path) => {
             return setGallery(events => [...events, {
-                src: `http://localhost:5000/public/${path}`
+                src: `${BASE_API}/public/${path}`
             }])
         }))
         
