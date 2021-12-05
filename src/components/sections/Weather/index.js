@@ -23,6 +23,7 @@ export const Weather = () => {
   }, [screen]);
   
   useEffect(() => {
+    getScreen();
     if(screen <= 768) {
       setIsMobile(true);
     } else {
