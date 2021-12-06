@@ -11,7 +11,7 @@ export const Slide = () => {
   const [ paths, setPaths] = useState([]);
 
   const images = paths.map((path) => ({
-    src: `${BASE_API}/public/${path}`
+    src: `http://18.224.213.60:5000/public/${path}`
   }));
 
   const getPaths = async () => {
