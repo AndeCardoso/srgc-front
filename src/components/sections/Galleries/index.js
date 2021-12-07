@@ -117,15 +117,15 @@ export const Galleries = () => {
                             :<></>
                         }
                         { galleryTitles[2] !== '' ?
-                            <GalleryButton activate={state3} onClick={() => renderSwitch('3')}>{galleryTitles[2]}</GalleryButton>
+                            <GalleryButton state={state3} onClick={() => renderSwitch('3')}>{galleryTitles[2]}</GalleryButton>
                             :<></>
                         }
                         { galleryTitles[3] !== '' ?
-                            <GalleryButton activate={state4} onClick={() => renderSwitch('4')}>{galleryTitles[3]}</GalleryButton>
+                            <GalleryButton state={state4} onClick={() => renderSwitch('4')}>{galleryTitles[3]}</GalleryButton>
                             :<></>
                         }
                         { galleryTitles[4] !== '' ?
-                            <GalleryButton activate={state5} onClick={() => renderSwitch('5')}>{galleryTitles[4]}</GalleryButton>
+                            <GalleryButton state={state5} onClick={() => renderSwitch('5')}>{galleryTitles[4]}</GalleryButton>
                             :<></>
                         }
                     </S.SideList>
