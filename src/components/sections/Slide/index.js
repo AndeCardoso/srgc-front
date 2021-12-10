@@ -16,10 +16,6 @@ export const Slide = () => {
 
   const getPaths = async () => {
     
-    api.defaults.headers = {
-      "Accept": "application/json",
-      "Access-Control_Allow_Origin": "*"
-    }
     await api.get('/slide')
     .then(response => {
       response.data.data.map((path) => {return setPaths(events => [...events, path])});
