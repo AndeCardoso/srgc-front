@@ -36,8 +36,9 @@ export const BelongContainer = styled.div`
 
   @media screen and (max-width: 1024px) {
     flex-direction: column;
+    justify-content: space-between;
     margin: 0;
     width: 100%;
-    height: 130vh;
+    min-height: 930px;
   }
 `;

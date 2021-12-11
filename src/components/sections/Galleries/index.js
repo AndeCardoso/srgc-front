@@ -67,8 +67,7 @@ export const Galleries = () => {
         await api.get(`/gallery/gallery${value}`)
         .then(response => response.data.images.map((path) => {
             return setGallery(events => [...events, {
-                src: `http://18.224.213.60:5000/public/${path}`
-                //src: `${BASE_API}/public/${path}`
+                src: `${BASE_API}/public/${path}`
             }])
         }))
         

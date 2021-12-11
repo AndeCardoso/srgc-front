@@ -15,7 +15,7 @@ export const Container = styled.section`
   @media screen and (max-width: 1024px) {
     flex-direction: column;
     justify-content: center;
-    height: 130vh;
+    min-height: 930px;
   }
 
   @media screen and (max-width: 768px) {

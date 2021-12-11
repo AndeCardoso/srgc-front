@@ -12,7 +12,6 @@ export const Container = styled.div`
 
   @media screen and (max-width: 1024px) {
     width: 100%;
-    height: 800px;
   }
 `;
 
@@ -27,7 +26,8 @@ export const Section = styled.section`
 
   @media screen and (max-width: 1024px) {
     width: 90%;
-    height: 90%;
+    min-height: 340px;
+    padding: 20px;
   }
 `;
 
@@ -38,6 +38,7 @@ export const Title = styled.h3`
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: solid 2px #dbdada;
+
   @media screen and (max-width: 426px) {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -57,6 +58,8 @@ export const Form = styled.div`
   }
   
   @media screen and (max-width: 426px) {
+    height: 100%;
+
     .email {
       width: 90%;
     }

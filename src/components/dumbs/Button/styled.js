@@ -51,10 +51,6 @@ export const Item = styled.li`
     background-color: ${props => props.theme.secondary};
     color: #000;
   }
-  /* button:focus {
-    background-color: ${props => props.theme.secondary};
-    color: #000;
-  } */
 
   i {
     float: right;
