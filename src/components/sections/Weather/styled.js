@@ -11,7 +11,8 @@ export const Container = styled.div`
 
   iframe {
     width: 75%;
-    height: 430px;
+    height: 470px;
+    padding: 20px;
     background-color: ${props => props.theme.primary};
     border: none;
     overflow-x: scroll;
