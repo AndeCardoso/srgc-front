@@ -5,6 +5,21 @@ export const Container = styled.li`
   text-align: center;
   margin: 10px 0;
   color: #fff;
+
+  .booking {
+    background-color: ${props => props.theme.primary};
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (max-width: 376px) {
+    .booking {
+      font-size: 20px;
+      text-align: left;
+    }
+  }
 `;
 
 export const Link = styled.a`
@@ -22,11 +37,13 @@ export const Link = styled.a`
   padding-left: 20px;
   background-color: rgba(250,250,250,0.1);
   transition: all 0.6s;
-
+  
   :hover {
     background-color: ${props => props.theme.secondary};
     color: #000;
   }
+  
+  
 `;
 
 export const Icon = styled.i`
@@ -38,4 +55,8 @@ export const Icon = styled.i`
   height: 60px;
   width: 60px;
   font-size: 36px;
+
+  img {
+    width: 75px;
+  }
 `;

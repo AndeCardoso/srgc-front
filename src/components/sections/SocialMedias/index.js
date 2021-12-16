@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { IoCall } from 'react-icons/io5'
 
-import { SocialMedia } from "../../dumbs/SocialMedia";
+import { Booking, SocialMedia } from "../../dumbs/SocialMedia";
 
 import api from '../../../services/api';
 
@@ -16,7 +16,8 @@ export const SocialMedias = () => {
 
   const [ facebook, setFacebook ] = useState('');
   const [ instagram, setInstagram ] = useState('');
-  const [ twitter, setTwitter ] = useState('');
+
+  const [ booking, setBooking ] = useState('');
 
   const phoneLink = `tel:+550${phone}`;
 
@@ -34,7 +35,7 @@ export const SocialMedias = () => {
       setSectionTitle(response.data.socialMedias.sectionTitle);
       setFacebook(response.data.socialMedias.facebook);
       setInstagram(response.data.socialMedias.instagram);
-      setTwitter(response.data.socialMedias.twitter);
+      setBooking(response.data.socialMedias.twitter);
     })
   }, [])
 
@@ -45,6 +46,9 @@ export const SocialMedias = () => {
           <h1>{enterpriseName}</h1>
         </S.Logo>
         <S.Social>
+            {
+              booking ? <Booking href={booking} media="Booking">Faça sua reserva</Booking> : <></>
+            }
           <S.SectionTitle>{sectionTitle}</S.SectionTitle>
           <S.List>
             {
@@ -52,9 +56,6 @@ export const SocialMedias = () => {
             }
             {
               instagram ? <SocialMedia href={instagram} media="Instagram">Siga nosso perfil</SocialMedia> : <></>
-            }
-            {
-              twitter ? <SocialMedia href={twitter} media="Twitter">Siga nosso perfil</SocialMedia> : <></>
             }
 
           </S.List>
