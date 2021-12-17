@@ -17,6 +17,8 @@ export const Contact = () => {
   const [ phone, setPhone ] = useState('');
   const [ email, setEmail ] = useState('');
 
+  const [ phoneButton, setPhoneButton ] = useState('');
+
   const alert = useAlert();
 
   const isName = nameValid(name);
@@ -51,11 +53,11 @@ export const Contact = () => {
   useEffect( async () => {
     await api.get('/settings')
     .then(response => {
-      setPhone(response.data.settings.phone);
+      setPhoneButton(response.data.settings.phone);
     })
   }, []);
 
-  const phoneLink = `tel:+55${phone}`;
+  const phoneLink = `tel:+55${phoneButton}`;
 
   return (
     <S.Container>
@@ -74,7 +76,7 @@ export const Contact = () => {
         <S.Contact>
           <a href={phoneLink}>
             <IoCall />
-            {phone}
+            {phoneButton}
           </a>
         </S.Contact>
       </S.Wrapper>
