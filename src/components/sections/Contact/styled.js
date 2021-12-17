@@ -9,6 +9,10 @@ export const Container = styled.div`
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+
+  @media (max-width: 1024px) {
+    max-height: 430px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -18,6 +22,10 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+
+  @media screen and (max-width: 1024px) {
+    height: 469.98px;
+  }
 `;
 
 export const Section = styled.section`
@@ -30,11 +38,12 @@ export const Section = styled.section`
   margin-top: 140px;
   background-color: rgba(250,250,250,0.90);
 
+
   @media screen and (max-width: 1024px) {
     width: 90%;
     min-height: 340px;
     padding: 20px;
-    margin-top: 30px;
+    margin: 0 30px;
   }
 `;
 

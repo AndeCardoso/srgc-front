@@ -39,6 +39,6 @@ export const BelongContainer = styled.div`
     justify-content: space-between;
     margin: 0;
     width: 100%;
-    min-height: 100%;
+    min-height: 1050px;
   }
 `;
