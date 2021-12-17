@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { IoCall } from 'react-icons/io5'
+import { IoLogoWhatsapp } from 'react-icons/io5';
 
 import { Booking, SocialMedia } from "../../dumbs/SocialMedia";
 
@@ -9,7 +9,7 @@ import api from '../../../services/api';
 import * as S from './styled';
 
 export const SocialMedias = () => {
-  const [ phone, setPhone ] = useState('');
+  const [ whatsapp, setWhatsapp ] = useState('');
   const [ enterpriseName, setEnterpriseName ] = useState('');
 
   const [ sectionTitle, setSectionTitle ] = useState('');
@@ -19,12 +19,12 @@ export const SocialMedias = () => {
 
   const [ booking, setBooking ] = useState('');
 
-  const phoneLink = `tel:+550${phone}`;
+  const whatsLink = `https://wa.me/550${whatsapp}?text=Eu%20tenho%20interesse%20em%20reservar%20um%20apartamento`;
 
   useEffect( async () => {
     await api.get('/settings')
     .then(response => {
-      setPhone(response.data.settings.phone);
+      setWhatsapp(response.data.settings.whatsapp);
       setEnterpriseName(response.data.settings.enterpriseName);
     })
   }, []);
@@ -37,7 +37,7 @@ export const SocialMedias = () => {
       setInstagram(response.data.socialMedias.instagram);
       setBooking(response.data.socialMedias.twitter);
     })
-  }, [])
+  }, []);
 
   return (
     <S.Container>
@@ -61,9 +61,9 @@ export const SocialMedias = () => {
           </S.List>
         </S.Social>
         <S.Contact>
-          <a href={phoneLink}>
-            <IoCall />
-            {phone}
+          <a href={whatsLink}>
+            <IoLogoWhatsapp size={25} />
+            {whatsapp}
           </a>
         </S.Contact>
       </S.Section>

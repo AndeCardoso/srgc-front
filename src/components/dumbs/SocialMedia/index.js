@@ -46,7 +46,7 @@ export const Booking = ({ href, children, media }) => {
   
 
   return (
-    <S.Container>
+    <S.Container className="container-booking">
       <S.Link href={href} target="_blank" className="booking">
         {children}
         <S.Icon>

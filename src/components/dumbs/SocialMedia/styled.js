@@ -14,6 +14,10 @@ export const Container = styled.li`
     margin-bottom: 30px;
   }
 
+  .container-booking {
+    width: 100%;
+  }
+
   @media screen and (max-width: 376px) {
     .booking {
       font-size: 20px;

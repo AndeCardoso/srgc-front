@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAlert } from 'react-alert'
 
 import { Input, InputPhone } from '../../dumbs/Input';
 import { Button } from '../../dumbs/Button';
 
+import { IoCall } from 'react-icons/io5';
+
 import { emailValid, nameValid, phoneValid } from '../../../services/formsValidations';
+
 import api from '../../../services/api';
 
 import * as S from './styled';
@@ -45,19 +48,36 @@ export const Contact = () => {
     })
   }
 
+  useEffect( async () => {
+    await api.get('/settings')
+    .then(response => {
+      setPhone(response.data.settings.phone);
+    })
+  }, []);
+
+  const phoneLink = `tel:+550${phone}`;
+
   return (
     <S.Container>
-      <S.Section>
-        <S.Title>Entre em contato:</S.Title>
-        <S.Form>
-          <S.TopInputs>
-            <Input type="text" onChange={event => setName(event.target.value)} label="Nome" className="left" />
-            <InputPhone type="text" onChange={event => setPhone(event.target.value)} label="Telefone" className="right"  />
-          </S.TopInputs>
-          <Input type="text" onChange={event => setEmail(event.target.value)} label="E-mail" className="email" />
-          <Button type="button" onClick={handleSend} >Enviar</Button>
-        </S.Form>
-      </S.Section>
+      <S.Wrapper>
+        <S.Section>
+          <S.Title>Entre em contato:</S.Title>
+          <S.Form>
+            <S.TopInputs>
+              <Input type="text" onChange={event => setName(event.target.value)} label="Nome" className="left" />
+              <InputPhone type="text" onChange={event => setPhone(event.target.value)} label="Telefone" className="right"  />
+            </S.TopInputs>
+            <Input type="text" onChange={event => setEmail(event.target.value)} label="E-mail" className="email" />
+            <Button type="button" onClick={handleSend} >Enviar</Button>
+          </S.Form>
+        </S.Section>
+        <S.Contact>
+          <a href={phoneLink}>
+            <IoCall />
+            {phone}
+          </a>
+        </S.Contact>
+      </S.Wrapper>
     </S.Container>
   );
 }

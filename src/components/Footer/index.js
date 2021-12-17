@@ -53,15 +53,6 @@ export const Footer = () => {
           <></>
         }
         {
-          twitter 
-          ?
-          <S.Icon>
-            <a href={twitter} target="_blank"><AiOutlineTwitter size={25} /></a>
-          </S.Icon> 
-          :
-          <></>
-        }
-        {
           instagram 
           ?
           <S.Icon>

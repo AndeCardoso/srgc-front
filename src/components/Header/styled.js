@@ -21,7 +21,7 @@ export const Header = styled.header`
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    height: 130vh;
+    height: 143.3vh;
   }
 `;
 
@@ -39,6 +39,6 @@ export const BelongContainer = styled.div`
     justify-content: space-between;
     margin: 0;
     width: 100%;
-    min-height: 930px;
+    min-height: 100%;
   }
 `;

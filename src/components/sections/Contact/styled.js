@@ -4,15 +4,20 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+`;
 
-  @media screen and (max-width: 1024px) {
-    width: 100%;
-  }
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 `;
 
 export const Section = styled.section`
@@ -22,12 +27,14 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 140px;
   background-color: rgba(250,250,250,0.90);
 
   @media screen and (max-width: 1024px) {
     width: 90%;
     min-height: 340px;
     padding: 20px;
+    margin-top: 30px;
   }
 `;
 
@@ -72,5 +79,30 @@ export const TopInputs = styled.div`
 
   @media screen and (max-width: 426px) {
     flex-direction: column;
+  }
+`;
+
+export const Contact = styled.div`
+  display: flex;
+
+  svg {
+    margin-right: 10px;
+    align-self: center;
+  }
+
+  a {
+    display: inline-block;
+    line-height: 60px;
+    width: 270px;
+    height: 60px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: ${props => props.theme.secondary};
+    font-size: 18px;
+    font-weight: 700;
+    color: #121212;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0px;
   }
 `;

@@ -79,7 +79,9 @@ export const Contact = styled.div`
   }
 
   a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     line-height: 60px;
     width: 270px;
     height: 60px;

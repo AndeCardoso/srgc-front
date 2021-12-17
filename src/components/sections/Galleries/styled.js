@@ -8,6 +8,9 @@ export const Section = styled.section`
 `;
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 1200px;
   padding-right: 15px;
   padding-left: 15px;
@@ -34,6 +37,14 @@ export const Container = styled.div`
     flex-direction: column;
     width: 100%;
   }
+`;
+
+export const ContainerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
 `;
 
 export const SideList = styled.ul`
@@ -90,8 +101,19 @@ export const CarouselContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 8px;
+  margin-left: 15px;
   
   @media screen and (max-width: 1025px) {
     width: 100%;
+    margin-left: 0;
   }
 `;
+
+  export const Booking = styled.div`
+    margin-top: 15px;
+    width: 50%;
+
+    @media screen and (max-width: 1025px) {
+      width: 100%;
+    }
+  `;
