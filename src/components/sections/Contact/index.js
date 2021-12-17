@@ -55,7 +55,7 @@ export const Contact = () => {
     })
   }, []);
 
-  const phoneLink = `tel:+550${phone}`;
+  const phoneLink = `tel:+55${phone}`;
 
   return (
     <S.Container>

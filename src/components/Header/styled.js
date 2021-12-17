@@ -21,7 +21,6 @@ export const Header = styled.header`
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    height: 143.3vh;
   }
 `;
 
