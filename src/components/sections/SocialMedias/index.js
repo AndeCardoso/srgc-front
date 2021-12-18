@@ -19,13 +19,14 @@ export const SocialMedias = () => {
 
   const [ booking, setBooking ] = useState('');
 
-  const whatsLink = `https://wa.me/550${whatsapp}?text=Eu%20tenho%20interesse%20em%20reservar%20um%20apartamento`;
+  const whatsLink = `https://wa.me/550${whatsapp.replace(/[^0-9]/g,'')}?text=Eu%20tenho%20interesse%20em%20reservar%20um%20apartamento`;
 
   useEffect( async () => {
     await api.get('/settings')
     .then(response => {
       setWhatsapp(response.data.settings.whatsapp);
       setEnterpriseName(response.data.settings.enterpriseName);
+      
     })
   }, []);
 
