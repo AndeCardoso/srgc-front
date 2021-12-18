@@ -43,7 +43,7 @@ export const Item = styled.li`
       justify-content: space-between;
 
       span {
-        width: 280px;
+        width: 100%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
