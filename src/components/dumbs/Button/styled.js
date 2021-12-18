@@ -40,6 +40,7 @@ export const Item = styled.li`
 
     div {
       display: flex;
+      justify-content: space-between;
 
       span {
         width: 280px;
