@@ -36,7 +36,7 @@ export const Weather = () => {
       {
         isMobile ?
         <iframe src="https://www.meteoblue.com/pt/weather/widget/daily/capão-da-canoa_brazil_3467362?geoloc=fixed&days=5&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=monochrome&pictoicon=icon&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&pressure=0&layout=dark" 
-          frameborder="0"
+          frameBorder="0"
           scrolling="NO"
           sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
           style={{width: "300px", height: "420px"}}>

@@ -11,11 +11,15 @@ export const Button = ({ type, children, onClick, className}) => {
 }
 
 export const GalleryButton = ({ children, onClick, className, state }) => {
+
   return (
     <S.Container className={className} >
       <S.Item>
         <button onClick={onClick} className={state ? 'clicked' : ''}>
-          {children} <i><MdOutlineArrowForwardIos size={24} /></i>
+          <div>
+            <span>{children}</span>
+            <i><MdOutlineArrowForwardIos size={24} /></i>
+          </div>
         </button>
       </S.Item>
     </S.Container>

@@ -21,25 +21,43 @@ export const Item = styled.li`
   margin: 8px 0px;
   
   button {
+    width: 100%;
+    height: 60px;
     display: block;
     transition: all 0.5s;
     text-align: left;
-    text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: #fff;
     font-size: 17px;
     font-weight: 700;
     display: inline-block;
-    width: 100%;
-    height: 60px;
     line-height: 60px;
     padding-left: 20px;
     cursor: pointer;
     border: none;
     background-color: ${props => props.theme.primary};
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+    div {
+      display: flex;
+
+      span {
+        width: 280px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      i {
+        float: right;
+        background-color: rgba(250,250,250,0.2);
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 36px;
+      }
+    }
   }
 
   button:hover {
@@ -50,15 +68,5 @@ export const Item = styled.li`
   .clicked {
     background-color: ${props => props.theme.secondary};
     color: #000;
-  }
-
-  i {
-    float: right;
-    background-color: rgba(250,250,250,0.2);
-    height: 60px;
-    width: 60px;
-    line-height: 60px;
-    text-align: center;
-    font-size: 36px;
   }
 `;

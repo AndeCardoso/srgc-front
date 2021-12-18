@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { FaFacebookF } from 'react-icons/fa';
 import { BsInstagram } from 'react-icons/bs';
+import { GiArrowCursor } from 'react-icons/gi';
 
 import BookingIcon from '../../../assets/booking.svg';
 
@@ -32,25 +33,14 @@ export const SocialMedia = ({ href, children, media }) => {
   );
 }
 
-export const Booking = ({ href, children, media }) => {
-  const [icon, setIcon] = useState('');
-
-  const socialMedias = {
-    Facebook: <FaFacebookF size={40} />,
-    Instagram: <BsInstagram size={40} />,
-  }
-
-  useEffect(() => {
-    setIcon(socialMedias[media]);
-  }, [])
-  
+export const Booking = ({ href, children }) => {
 
   return (
     <S.Container className="container-booking">
       <S.Link href={href} target="_blank" className="booking">
         {children}
         <S.Icon>
-          <img src={BookingIcon} alt="Ícone site de reservas" />
+          <GiArrowCursor size={45} />
         </S.Icon>
       </S.Link>
     </S.Container>
