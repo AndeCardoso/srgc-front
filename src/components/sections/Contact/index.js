@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useAlert } from 'react-alert'
 
 import { Input, InputPhone } from '../../dumbs/Input';
@@ -8,6 +8,7 @@ import { IoCall } from 'react-icons/io5';
 
 import { emailValid, nameValid, phoneValid } from '../../../services/formsValidations';
 
+import { useInfos } from '../../../hooks/infos-hooks';
 import api from '../../../services/api';
 
 import * as S from './styled';
@@ -17,7 +18,7 @@ export const Contact = () => {
   const [ phone, setPhone ] = useState('');
   const [ email, setEmail ] = useState('');
 
-  const [ phoneButton, setPhoneButton ] = useState('');
+  const { infosState } = useInfos();
 
   const alert = useAlert();
 
@@ -50,14 +51,7 @@ export const Contact = () => {
     })
   }
 
-  useEffect( async () => {
-    await api.get('/settings')
-    .then(response => {
-      setPhoneButton(response.data.settings.phone);
-    })
-  }, []);
-
-  const phoneLink = `tel:+55${phoneButton}`;
+  const phoneLink = `tel:+55${infosState.settings.phone}`;
 
   return (
     <S.Container>
@@ -76,7 +70,7 @@ export const Contact = () => {
         <S.Contact>
           <a href={phoneLink}>
             <IoCall />
-            {phoneButton}
+            {infosState.settings.phone}
           </a>
         </S.Contact>
       </S.Wrapper>

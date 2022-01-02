@@ -4,7 +4,6 @@ export const Section = styled.section`
   margin: 100px 0;
   background-color: #f4f4f4;
   padding: 80px 0px;
-  
 `;
 
 export const Wrapper = styled.div`
@@ -45,18 +44,6 @@ export const ContainerWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 100%;
-`;
-
-export const SideList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  list-style: none;
-  width: 360px;
-  
-  @media screen and (max-width: 1025px) {
-    width: 100%;
-  }
 `;
 
 export const Item = styled.li`
@@ -109,11 +96,11 @@ export const CarouselContainer = styled.div`
   }
 `;
 
-  export const Booking = styled.div`
-    margin-top: 15px;
-    width: 50%;
+export const Booking = styled.div`
+  margin-top: 15px;
+  width: 50%;
 
-    @media screen and (max-width: 1025px) {
-      width: 100%;
-    }
-  `;
+  @media screen and (max-width: 1025px) {
+    width: 100%;
+  }
+`;

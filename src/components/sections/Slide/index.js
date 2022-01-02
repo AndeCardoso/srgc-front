@@ -1,33 +1,17 @@
-import { useEffect, useState } from 'react';
-
 import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
+import { useInfos } from '../../../hooks/infos-hooks';
 
-import api, {BASE_API} from '../../../services/api';
+import { BASE_API } from '../../../services/api';
 
 import * as S from './styled';
 
 export const Slide = () => {
-  const [ paths, setPaths] = useState([]);
+  const { infosState } = useInfos();
 
-  const images = paths.map((path) => ({
+  const images = infosState.slide.map((path) => ({
     src: `${BASE_API}/public/${path}`
   }));
-
-  const getPaths = async () => {
-    
-    await api.get('/slide')
-    .then(response => {
-      response.data.data.map((path) => {return setPaths(events => [...events, path])});
-    })
-    .catch(err =>
-      console.log(err)
-    )
-  }
-
-  useEffect(() => {
-    getPaths();
-  }, [])
 
   return (
     <S.Container>

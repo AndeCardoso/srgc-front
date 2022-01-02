@@ -13,6 +13,7 @@ export const Button = ({ type, children, onClick, className}) => {
 }
 
 export const GalleryButton = ({ children, onClick, className, state }) => {
+
   return (
     <S.Container className={className} >
       <S.Item>
@@ -22,8 +23,6 @@ export const GalleryButton = ({ children, onClick, className, state }) => {
               <Marquee
               scrollWhen="overflow"
               direction="left"
-              speed="0.02"
-              delay="0.08"
               >
                 {children}
               </Marquee>

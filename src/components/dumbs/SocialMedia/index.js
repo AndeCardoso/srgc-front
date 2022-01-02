@@ -4,21 +4,18 @@ import { FaFacebookF } from 'react-icons/fa';
 import { BsInstagram } from 'react-icons/bs';
 import { GiArrowCursor } from 'react-icons/gi';
 
-import BookingIcon from '../../../assets/booking.svg';
-
 import * as S from './styled';
 
 export const SocialMedia = ({ href, children, media }) => {
   const [icon, setIcon] = useState('');
 
-  const socialMedias = {
-    Facebook: <FaFacebookF size={40} />,
-    Instagram: <BsInstagram size={40} />,
-  }
-
   useEffect(() => {
+    const socialMedias = {
+      Facebook: <FaFacebookF size={40} />,
+      Instagram: <BsInstagram size={40} />,
+    }
     setIcon(socialMedias[media]);
-  }, [])
+  }, [media])
   
 
   return (

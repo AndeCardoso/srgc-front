@@ -1,70 +1,38 @@
-import { useState, useEffect } from 'react';
-
 import { IoLogoWhatsapp } from 'react-icons/io5';
 
 import { Booking, SocialMedia } from "../../dumbs/SocialMedia";
-
-import api from '../../../services/api';
+import { useInfos } from '../../../hooks/infos-hooks';
 
 import * as S from './styled';
 
 export const SocialMedias = () => {
-  const [ whatsapp, setWhatsapp ] = useState('');
-  const [ enterpriseName, setEnterpriseName ] = useState('');
 
-  const [ sectionTitle, setSectionTitle ] = useState('');
-
-  const [ facebook, setFacebook ] = useState('');
-  const [ instagram, setInstagram ] = useState('');
-
-  const [ booking, setBooking ] = useState('');
-
-  const whatsLink = `https://wa.me/550${whatsapp.replace(/[^0-9]/g,'')}?text=Eu%20tenho%20interesse%20em%20reservar%20um%20apartamento`;
-
-  useEffect( async () => {
-    await api.get('/settings')
-    .then(response => {
-      setWhatsapp(response.data.settings.whatsapp);
-      setEnterpriseName(response.data.settings.enterpriseName);
-      
-    })
-  }, []);
-
-  useEffect( async () => {
-    await api.get('/social-medias')
-    .then(response => {
-      setSectionTitle(response.data.socialMedias.sectionTitle);
-      setFacebook(response.data.socialMedias.facebook);
-      setInstagram(response.data.socialMedias.instagram);
-      setBooking(response.data.socialMedias.twitter);
-    })
-  }, []);
+  const { infosState } = useInfos();
 
   return (
     <S.Container>
       <S.Section>
         <S.Logo>
-          <h1>{enterpriseName}</h1>
+          <h1>{infosState.settings.enterpriseName}</h1>
         </S.Logo>
         <S.Social>
             {
-              booking ? <Booking href={booking} media="Booking">Faça sua reserva</Booking> : <></>
+              infosState.socialMedias.booking ? <Booking href={infosState.socialMedias.booking} media="Booking">Faça sua reserva</Booking> : <></>
             }
-          <S.SectionTitle>{sectionTitle}</S.SectionTitle>
+          <S.SectionTitle>{infosState.socialMedias.sectionTitle}</S.SectionTitle>
           <S.List>
             {
-              facebook ? <SocialMedia href={facebook} media="Facebook">Curta nossa pagina</SocialMedia> : <></>
+              infosState.socialMedias.facebook ? <SocialMedia href={infosState.socialMedias.facebook} media="Facebook">Curta nossa pagina</SocialMedia> : <></>
             }
             {
-              instagram ? <SocialMedia href={instagram} media="Instagram">Siga nosso perfil</SocialMedia> : <></>
+              infosState.socialMedias.instagram ? <SocialMedia href={infosState.socialMedias.instagram} media="Instagram">Siga nosso perfil</SocialMedia> : <></>
             }
-
           </S.List>
         </S.Social>
         <S.Contact>
-          <a href={whatsLink}>
+          <a href={`https://wa.me/550${infosState.settings.whatsappNumber}?text=Eu%20tenho%20interesse%20em%20reservar%20um%20apartamento`}>
             <IoLogoWhatsapp size={25} />
-            {whatsapp}
+            {infosState.settings.whatsapp}
           </a>
         </S.Contact>
       </S.Section>

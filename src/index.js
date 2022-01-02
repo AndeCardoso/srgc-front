@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
+import { InfosProviders } from './providers/infos-provider';
 
 const options = {
   position: positions.TOP_CENTER,
@@ -14,7 +15,9 @@ const options = {
 
 ReactDOM.render(
     <AlertProvider template={AlertTemplate} {...options}>
-      <Layout />
+      <InfosProviders>
+        <Layout />
+      </InfosProviders>
     </AlertProvider>,
   document.getElementById('root')
 );

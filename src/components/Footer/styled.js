@@ -81,7 +81,7 @@ export const Infos = styled.div`
     margin-bottom: 5px;
   }
 
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 820px) {
     flex-direction: column;
     
     p {

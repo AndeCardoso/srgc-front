@@ -1,38 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { Header } from "../Header";
 import { Main } from "../Main";
 import { Footer } from "../Footer";
 
-import api from '../../services/api';
-
-import * as S from './styled';
 import { ResetCss } from '../../ResetCss';
 
+import { useInfos } from '../../hooks/infos-hooks';
+
+import * as S from './styled';
+
 export const Layout = () => {
-  const [ enterpriseName, setEnterpriseName ] = useState('');
-  const [ theme, setTheme ] = useState({
-    primary: '',
-    secondary: ''
-  });
-
-  useEffect( async () => {
-    const response = await api.get('/settings');
-    setEnterpriseName(response.data.settings.enterpriseName);
-  }, []);
+  const { infosState, getSettings, getSocialMedias, getTheme, getSectionTitle, getSlide, getGalleries, getGalleriesTitles } = useInfos();
   
-  useEffect( async () => {
-    const response = await api.get('/theme');
-    setTheme({
-      primary: response.data.theme.primary,
-      secondary: response.data.theme.secondary
-    })
-  }, []);
+  const getAll = async () => {
+    getSettings();
+    getSocialMedias();
+    getGalleries();
+    getGalleriesTitles();
+    getSectionTitle();
+    getTheme();
+    getSlide();
+  }
+  
+  useEffect(() => {
+    getAll();
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  document.title = enterpriseName;
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={infosState.theme}>
       <ResetCss />
       <S.Layout>
         <Header />
